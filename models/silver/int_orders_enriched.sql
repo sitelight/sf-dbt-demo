@@ -21,7 +21,7 @@
   orchestration, processing only changed data to reduce compute costs.
 */
 
-{% if is_incremental() %}
+with {% if is_incremental() %}
 max_updated_at as (
     select max(updated_at) as max_updated_at
     from {{ this }}
