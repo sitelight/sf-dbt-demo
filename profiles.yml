@@ -1,0 +1,9 @@
+snowflake_fusion_demo:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      role: ACCOUNTADMIN
+      warehouse: DBT_WAREHOUSE
+      database: DBT_PROJECT_DB
+      schema: PUBLIC
