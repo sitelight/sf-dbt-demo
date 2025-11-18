@@ -19,7 +19,7 @@
 */
 
 with source as (
-    select * from {{ source('raw', 'raw_customers') }}
+    select * from {{ ref('raw_customers') }}
 ),
 
 renamed as (

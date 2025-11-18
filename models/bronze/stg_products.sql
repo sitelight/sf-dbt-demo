@@ -16,7 +16,7 @@
 */
 
 with source as (
-    select * from {{ source('raw', 'raw_products') }}
+    select * from {{ ref('raw_products') }}
 ),
 
 transformed as (

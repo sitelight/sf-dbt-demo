@@ -18,7 +18,7 @@
 */
 
 with source as (
-    select * from {{ source('raw', 'raw_order_items') }}
+    select * from {{ ref('raw_order_items') }}
 ),
 
 transformed as (
