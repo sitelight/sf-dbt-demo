@@ -21,11 +21,18 @@
   orchestration, processing only changed data to reduce compute costs.
 */
 
-with orders as (
+{% if is_incremental() %}
+max_updated_at as (
+    select max(updated_at) as max_updated_at
+    from {{ this }}
+),
+{% endif %}
+
+orders as (
     select * from {{ ref('stg_orders') }}
     {% if is_incremental() %}
         -- Incremental filter: Process only recent orders
-        where updated_at > (select max(updated_at) from {{ this }})
+        where updated_at > (select max_updated_at from max_updated_at)
            or updated_at > dateadd(day, -{{ var('lookback_days', 3) }}, current_timestamp())
     {% endif %}
 ),
