@@ -1,33 +1,6 @@
 version: 2
 
 models:
-    description: >
-      Enriched order data combining order headers with aggregated line items and customer information.
-      This incremental model showcases Snowflake Fusion Engine's state-aware orchestration.
-    config:
-      tags: ['silver', 'incremental', 'orders']
-    columns:
-      - name: order_id
-        description: Unique order identifier (Primary Key)
-        tests:
-          - unique
-          - not_null
-      - name: customer_id
-        description: Foreign key to customer dimension
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_id
-      - name: grand_total
-        description: Total order amount including shipping, tax, and discounts
-        tests:
-          - not_null
-      - name: order_status
-        description: Current status of the order
-        tests:
-          - accepted_values:
-              values: ['pending', 'processing', 'shipped', 'completed', 'cancelled']
 
   - name: int_customer_orders
     description: >
