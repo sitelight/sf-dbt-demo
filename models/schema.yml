@@ -29,7 +29,6 @@ models:
       ### Gold Layer (Business-Ready Marts)
       - **Purpose**: Aggregated metrics for business intelligence
       - **Materialization**: Tables (persistent, clustered)
-      - **Models**: mart_sales_daily, mart_customer_lifetime_value, mart_product_performance
       - **Key Features**: KPIs, segmentation, performance optimization
 
       ## Fusion Engine Highlights

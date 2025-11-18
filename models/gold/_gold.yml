@@ -1,35 +1,6 @@
 version: 2
 
 models:
-  - name: mart_sales_daily
-    description: >
-      Daily sales performance metrics for executive dashboards and reporting.
-      Incremental model with date clustering for optimal query performance.
-      Showcases Fusion Engine's cost optimization through selective processing.
-    config:
-      tags: ['gold', 'mart', 'sales']
-    columns:
-      - name: date_day
-        description: Date of sales activity (Primary Key, Clustered)
-        tests:
-          - unique
-          - not_null
-      - name: net_revenue
-        description: Total revenue after discounts for completed orders
-        tests:
-          - not_null
-      - name: total_orders
-        description: Count of all orders placed on this day
-        tests:
-          - not_null
-      - name: completed_orders
-        description: Count of completed orders
-      - name: order_completion_rate_pct
-        description: Percentage of orders that were completed
-      - name: avg_order_value
-        description: Average grand total for completed orders
-      - name: revenue_per_customer
-        description: Average revenue per active customer
 
   - name: mart_customer_lifetime_value
     description: >
