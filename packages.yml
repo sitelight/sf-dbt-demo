@@ -5,7 +5,7 @@ packages:
 
   # Audit helper - For comparing data between environments
   - package: dbt-labs/audit_helper
-    version: 0.14.0
+    version: 0.12.2
 
   # Codegen - Generate boilerplate YAML and SQL
   - package: dbt-labs/codegen
