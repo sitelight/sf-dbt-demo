@@ -1,0 +1,76 @@
+name: 'snowflake_fusion_demo'
+version: '1.0.0'
+config-version: 2
+
+# Profile configuration - connects to Snowflake
+profile: 'snowflake_fusion_demo'
+
+# Directory configurations
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Model configurations - Optimized for Snowflake Fusion Engine
+models:
+  snowflake_fusion_demo:
+    # Bronze layer - Raw/Staging models
+    bronze:
+      +materialized: view
+      +schema: bronze
+      +tags: ['bronze', 'staging']
+      +docs:
+        node_color: '#CD7F32'  # Bronze color
+
+    # Silver layer - Cleaned/Validated models
+    silver:
+      +materialized: table
+      +schema: silver
+      +tags: ['silver', 'intermediate']
+      +docs:
+        node_color: '#C0C0C0'  # Silver color
+      # Transient tables for cost optimization
+      +transient: true
+
+    # Gold layer - Business-ready marts
+    gold:
+      +materialized: table
+      +schema: gold
+      +tags: ['gold', 'mart']
+      +docs:
+        node_color: '#FFD700'  # Gold color
+      # Cluster by date for query performance
+      +cluster_by: ['date_day']
+      +transient: false  # Persist important business data
+
+# Seed configurations
+seeds:
+  snowflake_fusion_demo:
+    +schema: raw
+    +quote_columns: false
+
+# Test configurations
+tests:
+  snowflake_fusion_demo:
+    +severity: warn  # Don't fail builds on test failures during development
+
+# Snapshot configurations
+snapshots:
+  snowflake_fusion_demo:
+    +target_schema: snapshots
+    +unique_key: id
+    +strategy: timestamp
+    +updated_at: updated_at
+
+# Variables for the project
+vars:
+  # Date range for incremental processing
+  start_date: '2024-01-01'
+  # Lookback days for incremental models
+  lookback_days: 3

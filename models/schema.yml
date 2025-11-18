@@ -1,0 +1,94 @@
+version: 2
+
+# Project-level documentation
+# This file provides overview documentation for the entire project
+
+# Project overview in dbt docs
+models:
+  - name: Overview
+    description: |
+      # Snowflake DBT Fusion Engine Demo
+
+      ## Project Purpose
+      This project demonstrates Snowflake's DBT Fusion Engine capabilities through
+      a complete e-commerce analytics implementation using medallion architecture.
+
+      ## Architecture
+
+      ### Bronze Layer (Raw/Staging)
+      - **Purpose**: Preserve source data fidelity with minimal transformation
+      - **Materialization**: Views (no storage cost)
+      - **Models**: stg_customers, stg_orders, stg_products, stg_order_items
+      - **Key Features**: Data type casting, basic cleaning, surrogate keys
+
+      ### Silver Layer (Cleaned/Validated)
+      - **Purpose**: Business-ready, validated, and enriched data
+      - **Materialization**: Tables (transient for cost optimization)
+      - **Models**: int_orders_enriched, int_customer_orders, dim_customers
+      - **Key Features**: Data quality checks, enrichment, incremental processing
+
+      ### Gold Layer (Business-Ready Marts)
+      - **Purpose**: Aggregated metrics for business intelligence
+      - **Materialization**: Tables (persistent, clustered)
+      - **Models**: mart_sales_daily, mart_customer_lifetime_value, mart_product_performance
+      - **Key Features**: KPIs, segmentation, performance optimization
+
+      ## Fusion Engine Highlights
+
+      ### 1. Performance
+      - 30x faster parsing than traditional dbt Core
+      - Rust-based engine for industrial-grade performance
+      - State-aware orchestration processing only changed data
+
+      ### 2. Validation
+      - Real-time SQL validation without warehouse execution
+      - Catches errors before consuming compute credits
+      - Local error detection in VS Code
+
+      ### 3. Lineage
+      - Column-level lineage for compliance tracking
+      - Automatic tracking of PII/PHI data flow
+      - Three dependency types: copy, transform, inspect
+
+      ### 4. Cost Optimization
+      - Incremental models reduce compute by 60-80%
+      - Early validation prevents wasted warehouse credits
+      - Average 10% cost savings on data platform compute
+
+      ## Data Flow
+
+      ```
+      CSV Seeds (raw_*)
+          ↓
+      Bronze Layer (stg_*)
+          ↓
+      Silver Layer (int_*, dim_*)
+          ↓
+      Gold Layer (mart_*)
+          ↓
+      Business Intelligence Tools
+      ```
+
+      ## Key Metrics
+      - **Total Models**: 10
+      - **Total Tests**: 40+
+      - **Layers**: 3 (Bronze, Silver, Gold)
+      - **Incremental Models**: 2
+      - **Sample Records**: 20 customers, 30 orders, 54 line items
+
+      ## Business Use Cases
+
+      ### Sales Analytics
+      - Daily revenue and order metrics
+      - Order completion and cancellation rates
+      - Payment and shipping method analysis
+
+      ### Customer Analytics
+      - Customer lifetime value calculation
+      - RFM (Recency, Frequency, Monetary) segmentation
+      - Customer health scoring and churn prediction
+
+      ### Product Analytics
+      - Product performance and profitability
+      - Inventory health monitoring
+      - Best seller identification and ranking

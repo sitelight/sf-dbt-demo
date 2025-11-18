@@ -1,0 +1,12 @@
+packages:
+  # dbt Utils - Essential macros and helpers
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+
+  # Audit helper - For comparing data between environments
+  - package: dbt-labs/audit_helper
+    version: 0.14.0
+
+  # Codegen - Generate boilerplate YAML and SQL
+  - package: dbt-labs/codegen
+    version: 0.13.1

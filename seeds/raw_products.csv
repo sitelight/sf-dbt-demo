@@ -1,0 +1,21 @@
+product_id,product_name,category,subcategory,brand,price,cost,stock_quantity,created_at,updated_at
+1,Wireless Mouse,Electronics,Computer Accessories,TechPro,29.99,15.00,250,2024-01-01 00:00:00,2024-01-01 00:00:00
+2,USB-C Cable,Electronics,Computer Accessories,ConnectPlus,12.99,5.00,500,2024-01-01 00:00:00,2024-01-01 00:00:00
+3,Laptop Stand,Electronics,Computer Accessories,DeskMate,49.99,25.00,150,2024-01-01 00:00:00,2024-01-01 00:00:00
+4,Mechanical Keyboard,Electronics,Computer Accessories,KeyMaster,89.99,45.00,100,2024-01-01 00:00:00,2024-01-01 00:00:00
+5,LED Monitor 24",Electronics,Monitors,ViewPro,199.99,120.00,75,2024-01-01 00:00:00,2024-01-01 00:00:00
+6,Wireless Headphones,Electronics,Audio,SoundWave,79.99,40.00,200,2024-01-01 00:00:00,2024-01-01 00:00:00
+7,Bluetooth Speaker,Electronics,Audio,SoundWave,59.99,30.00,180,2024-01-01 00:00:00,2024-01-01 00:00:00
+8,Phone Case,Electronics,Mobile Accessories,ShieldPro,19.99,8.00,400,2024-01-01 00:00:00,2024-01-01 00:00:00
+9,Screen Protector,Electronics,Mobile Accessories,ShieldPro,14.99,5.00,350,2024-01-01 00:00:00,2024-01-01 00:00:00
+10,Desk Lamp,Home & Office,Lighting,BrightLife,34.99,18.00,120,2024-01-01 00:00:00,2024-01-01 00:00:00
+11,Notebook Set,Home & Office,Stationery,WritePlus,15.99,7.00,300,2024-01-01 00:00:00,2024-01-01 00:00:00
+12,Pen Pack,Home & Office,Stationery,WritePlus,9.99,4.00,450,2024-01-01 00:00:00,2024-01-01 00:00:00
+13,Office Chair,Home & Office,Furniture,ComfortSeating,249.99,150.00,50,2024-01-01 00:00:00,2024-01-01 00:00:00
+14,Backpack,Fashion,Bags,TravelMate,69.99,35.00,180,2024-01-01 00:00:00,2024-01-01 00:00:00
+15,Water Bottle,Sports & Outdoors,Hydration,HydroPlus,24.99,12.00,280,2024-01-01 00:00:00,2024-01-01 00:00:00
+16,Yoga Mat,Sports & Outdoors,Fitness,FitLife,39.99,20.00,160,2024-01-01 00:00:00,2024-01-01 00:00:00
+17,Running Shoes,Sports & Outdoors,Footwear,SpeedRunner,89.99,50.00,140,2024-01-01 00:00:00,2024-01-01 00:00:00
+18,Sunglasses,Fashion,Accessories,StyleVision,49.99,25.00,220,2024-01-01 00:00:00,2024-01-01 00:00:00
+19,Watch,Fashion,Accessories,TimeKeeper,129.99,70.00,95,2024-01-01 00:00:00,2024-01-01 00:00:00
+20,Coffee Maker,Home & Kitchen,Appliances,BrewMaster,79.99,45.00,110,2024-01-01 00:00:00,2024-01-01 00:00:00

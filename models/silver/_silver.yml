@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: int_orders_enriched
+    description: >
+      Enriched order data combining order headers with aggregated line items and customer information.
+      This incremental model showcases Snowflake Fusion Engine's state-aware orchestration.
+    config:
+      tags: ['silver', 'incremental', 'orders']
+    columns:
+      - name: order_id
+        description: Unique order identifier (Primary Key)
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key to customer dimension
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: grand_total
+        description: Total order amount including shipping, tax, and discounts
+        tests:
+          - not_null
+      - name: order_status
+        description: Current status of the order
+        tests:
+          - accepted_values:
+              values: ['pending', 'processing', 'shipped', 'completed', 'cancelled']
+
+  - name: int_customer_orders
+    description: >
+      Detailed customer order history at the line-item level with product and profit information.
+      Demonstrates column-level lineage tracking for PII compliance.
+    config:
+      tags: ['silver', 'customers', 'orders']
+    columns:
+      - name: order_item_id
+        description: Unique order line item identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Customer who placed the order
+        tests:
+          - not_null
+      - name: line_profit
+        description: Profit for this order line (revenue minus cost)
+      - name: is_line_total_valid
+        description: Flag indicating if line_total calculation is correct
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: >
+      Customer dimension table with enriched attributes, order history, and segmentation.
+      Type 1 SCD showing current state of customer data.
+    config:
+      tags: ['silver', 'dimension', 'customers']
+    columns:
+      - name: customer_id
+        description: Unique customer identifier (Primary Key)
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: Customer email address (PII - tracked via column lineage)
+        tests:
+          - not_null
+      - name: customer_segment
+        description: Customer lifecycle segment (New, Active, At Risk, Churned)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['No Orders', 'New', 'Active', 'At Risk', 'Churned']
+      - name: purchase_frequency_segment
+        description: Categorization based on number of completed orders
+        tests:
+          - accepted_values:
+              values: ['Never Purchased', 'One-Time Buyer', 'Occasional Buyer', 'Regular Buyer', 'VIP Buyer']

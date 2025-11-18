@@ -1,0 +1,19 @@
+[sqlfluff]
+# SQL dialect for Snowflake
+dialect = snowflake
+
+# Exclude compiled SQL and packages
+exclude_rules = L003, L011, L016
+
+[sqlfluff:indentation]
+# Indentation settings
+indent_unit = space
+tab_space_size = 4
+
+[sqlfluff:rules]
+# Capitalization rules
+capitalisation_policy = upper
+
+[sqlfluff:rules:L010]
+# Keywords should be upper case
+capitalisation_policy = upper

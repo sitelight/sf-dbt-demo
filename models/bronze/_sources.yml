@@ -1,0 +1,95 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw data loaded from CSV seeds representing e-commerce operational systems
+    database: "{{ target.database }}"
+    schema: raw
+    tables:
+      - name: raw_customers
+        description: Customer master data with contact and location information
+        columns:
+          - name: customer_id
+            description: Unique identifier for each customer (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: email
+            description: Customer email address
+            tests:
+              - not_null
+          - name: created_at
+            description: Timestamp when customer record was created
+
+      - name: raw_orders
+        description: Order header information including status and payment details
+        columns:
+          - name: order_id
+            description: Unique identifier for each order (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: Foreign key to customers table
+            tests:
+              - not_null
+              - relationships:
+                  to: source('raw', 'raw_customers')
+                  field: customer_id
+          - name: order_date
+            description: Date and time when order was placed
+            tests:
+              - not_null
+          - name: order_status
+            description: Current status of the order
+            tests:
+              - accepted_values:
+                  values: ['pending', 'processing', 'shipped', 'completed', 'cancelled']
+
+      - name: raw_products
+        description: Product catalog with pricing and inventory information
+        columns:
+          - name: product_id
+            description: Unique identifier for each product (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: product_name
+            description: Name of the product
+            tests:
+              - not_null
+          - name: price
+            description: Current selling price
+            tests:
+              - not_null
+          - name: cost
+            description: Cost of goods sold (COGS)
+
+      - name: raw_order_items
+        description: Order line items linking orders to products with quantity and pricing
+        columns:
+          - name: order_item_id
+            description: Unique identifier for each order line item (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: Foreign key to orders table
+            tests:
+              - not_null
+              - relationships:
+                  to: source('raw', 'raw_orders')
+                  field: order_id
+          - name: product_id
+            description: Foreign key to products table
+            tests:
+              - not_null
+              - relationships:
+                  to: source('raw', 'raw_products')
+                  field: product_id
+          - name: quantity
+            description: Number of units ordered
+            tests:
+              - not_null
+          - name: line_total
+            description: Total amount for this line item (quantity * unit_price)

@@ -1,0 +1,21 @@
+customer_id,first_name,last_name,email,phone,city,state,country,postal_code,created_at,updated_at
+1,John,Doe,john.doe@email.com,555-0101,New York,NY,USA,10001,2024-01-15 10:23:45,2024-01-15 10:23:45
+2,Jane,Smith,jane.smith@email.com,555-0102,Los Angeles,CA,USA,90001,2024-01-16 14:32:11,2024-01-16 14:32:11
+3,Michael,Johnson,m.johnson@email.com,555-0103,Chicago,IL,USA,60601,2024-01-17 09:15:22,2024-01-17 09:15:22
+4,Emily,Williams,emily.w@email.com,555-0104,Houston,TX,USA,77001,2024-01-18 16:44:33,2024-01-18 16:44:33
+5,David,Brown,david.brown@email.com,555-0105,Phoenix,AZ,USA,85001,2024-01-19 11:22:55,2024-01-19 11:22:55
+6,Sarah,Davis,sarah.d@email.com,555-0106,Philadelphia,PA,USA,19101,2024-01-20 13:56:14,2024-01-20 13:56:14
+7,James,Miller,james.m@email.com,555-0107,San Antonio,TX,USA,78201,2024-01-21 08:33:27,2024-01-21 08:33:27
+8,Linda,Wilson,linda.w@email.com,555-0108,San Diego,CA,USA,92101,2024-01-22 15:18:44,2024-01-22 15:18:44
+9,Robert,Moore,robert.m@email.com,555-0109,Dallas,TX,USA,75201,2024-01-23 10:42:19,2024-01-23 10:42:19
+10,Maria,Taylor,maria.t@email.com,555-0110,San Jose,CA,USA,95101,2024-01-24 12:27:38,2024-01-24 12:27:38
+11,William,Anderson,w.anderson@email.com,555-0111,Austin,TX,USA,73301,2024-01-25 09:14:52,2024-01-25 09:14:52
+12,Patricia,Thomas,patricia.t@email.com,555-0112,Jacksonville,FL,USA,32099,2024-01-26 14:55:03,2024-01-26 14:55:03
+13,Christopher,Jackson,chris.j@email.com,555-0113,Fort Worth,TX,USA,76101,2024-01-27 11:38:26,2024-01-27 11:38:26
+14,Jennifer,White,jennifer.w@email.com,555-0114,Columbus,OH,USA,43004,2024-01-28 16:21:47,2024-01-28 16:21:47
+15,Daniel,Harris,daniel.h@email.com,555-0115,San Francisco,CA,USA,94102,2024-01-29 10:09:18,2024-01-29 10:09:18
+16,Nancy,Martin,nancy.m@email.com,555-0116,Charlotte,NC,USA,28201,2024-01-30 13:44:29,2024-01-30 13:44:29
+17,Matthew,Thompson,matt.t@email.com,555-0117,Indianapolis,IN,USA,46201,2024-01-31 08:52:41,2024-01-31 08:52:41
+18,Lisa,Garcia,lisa.g@email.com,555-0118,Seattle,WA,USA,98101,2024-02-01 15:27:54,2024-02-01 15:27:54
+19,Anthony,Martinez,anthony.m@email.com,555-0119,Denver,CO,USA,80201,2024-02-02 12:13:06,2024-02-02 12:13:06
+20,Betty,Robinson,betty.r@email.com,555-0120,Boston,MA,USA,02101,2024-02-03 09:48:22,2024-02-03 09:48:22
