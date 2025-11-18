@@ -1,7 +1,6 @@
 version: 2
 
 models:
-  - name: int_orders_enriched
     description: >
       Enriched order data combining order headers with aggregated line items and customer information.
       This incremental model showcases Snowflake Fusion Engine's state-aware orchestration.

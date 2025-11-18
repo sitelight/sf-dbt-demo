@@ -24,7 +24,6 @@ models:
       ### Silver Layer (Cleaned/Validated)
       - **Purpose**: Business-ready, validated, and enriched data
       - **Materialization**: Tables (transient for cost optimization)
-      - **Models**: int_orders_enriched, int_customer_orders, dim_customers
       - **Key Features**: Data quality checks, enrichment, incremental processing
 
       ### Gold Layer (Business-Ready Marts)
