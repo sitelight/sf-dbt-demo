@@ -27,19 +27,24 @@ with customer_dimension as (
 ),
 
 customer_transactions as (
+    -- Aggregate line-item data to order level
     select
         customer_id,
         order_id,
         order_date,
-        is_completed,
-        is_cancelled,
-        subtotal_amount,
-        shipping_cost,
-        tax_amount,
-        discount_amount,
-        grand_total,
-        line_profit
+        max(is_completed) as is_completed,
+        max(is_cancelled) as is_cancelled,
+
+        -- Aggregate line items to calculate order totals
+        sum(line_total) as subtotal_amount,
+        max(shipping_cost) as shipping_cost,
+        max(tax_amount) as tax_amount,
+        max(discount_amount) as discount_amount,
+        sum(line_total) + max(shipping_cost) + max(tax_amount) - max(discount_amount) as grand_total,
+        sum(line_profit) as line_profit
+
     from {{ ref('int_customer_orders') }}
+    group by customer_id, order_id, order_date
 ),
 
 -- Aggregate customer metrics
